@@ -1,6 +1,6 @@
     <?php
-      include "header.php";
-      include "sidebar.php";
+      require "header.php";
+      require "sidebar.php";
     ?>
 
   <!-- Content Wrapper. Contains page content -->

@@ -41,6 +41,14 @@
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <style>
+    body {
+          /* background-image: url("images/school-management-software-500x500.png");
+          background-repeat: no-repeat;
+          background-position: top; */
+
+        }
+  </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">

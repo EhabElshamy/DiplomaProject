@@ -1,10 +1,10 @@
 <?php
-session_start();
- require "connect.php";
- if(!isset($_SESSION['username'])){
-  header("Location: login.php");
-}
 
+ session_start();
+ if(!isset($_SESSION['username'])){
+  header("Location: login");
+}
+require "connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
