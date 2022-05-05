@@ -1,0 +1,102 @@
+<?php
+      include "header.php";
+      include "sidebar.php";
+      $student_id= $_GET['student_id'];
+      $message = "";
+ if(isset($_POST['submit'])){
+
+  $student_name  = $_POST['student_name'];
+  $guardian_name = $_POST['guardian_name'];
+  $guardian_phone =$_POST['guardian_phone'];
+  $birthdate  = $_POST['birthdate'];
+
+
+
+  $InsertClassInStudentQuery=mysqli_query($conn,"UPDATE `students` SET `name`='$student_name',`guardian_name`='$guardian_name',`guardian_phone`='$guardian_phone',`birthdate`='$birthdate' WHERE `id` = '$student_id'");
+  if($InsertClassInStudentQuery) $message = "Data Updated Successfully";
+  
+  }
+      
+?>      
+?>
+<link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Edit Student info</h1>
+          </div>
+ 
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Update Student Info</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <form method="post" action="#">
+            <div class="card-body">
+              <div class="form-group">
+              <?php
+                  if (!empty($message)) {
+                      echo '              <div class="alert alert-success alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <h5><i class="icon fas fa-check"></i>'.$message.'</h5>
+                    </div>';
+                  }
+                  $students_query = "select * from students where id = '$student_id'";
+                  $students_result=  mysqli_query($conn,$students_query);
+                  foreach($students_result as $students_row){ 
+                  ?>
+                <label for="inputName">Student Name</label>
+                <input  name="student_name" value="<?=$students_row['name']?>" type="text" id="inputName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="inputDescription">Guardian Name</label>
+                <input name="guardian_name" value="<?=$students_row['guardian_name']?>" type="text" id="inputName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="inputDescription">Guardian Phone Number</label>
+                <input name="guardian_phone" value="<?=$students_row['guardian_phone']?>" type="number" id="inputName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="inputDescription">Student Birthdate</label>
+                <input name="birthdate" value="<?=$students_row['birthdate']?>" type="date" id="inputName" class="form-control" required>
+              </div>
+<?php } ?>
+              <!-- <div class="form-group">
+                <label for="inputStatus">Class</label>
+                <select id="inputStatus" class="form-control custom-select">
+                  <option selected disabled>Select one</option>
+                  <option>Success</option>
+                </select>
+              </div> -->
+     
+            <!-- /.card-body -->
+            <input name="submit" type="submit" value="Update Student Data" class="btn btn-success float-right">
+            </section>
+            </div>
+            </div>
+                </form>
+
+
+
+
+
+
+<?php
+include "footer.php";
+?>
