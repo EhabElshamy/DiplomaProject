@@ -61,6 +61,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form method="post" action="#" class="login100-form validate-form">
+					<img class="img-circle elevation-2"  src= "images/school-management-software-500x500.png" >
 					<span class="login100-form-title p-b-43">
 						Login to continue
 					</span>

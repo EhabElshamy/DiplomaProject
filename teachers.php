@@ -12,7 +12,8 @@
             <h1>Teachers</h1>
             </div>
             <div class="col-sm-6">
-            <a class="btn btn-success btn-lg  float-sm-right" href="addteacher.php">Add teacher</a>
+            <a class="btn btn-success float-sm-right" href="addteacher.php">Add teacher</a>
+            <a style="margin:0 5px" class="btn btn-default  float-sm-right" onclick="print()">Print</a>
           </div>
       </div><!-- /.container-fluid -->
     </section>

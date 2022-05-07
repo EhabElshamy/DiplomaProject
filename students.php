@@ -12,7 +12,9 @@
             <h1>Students</h1>
             </div>
             <div class="col-sm-6">
-            <a class="btn btn-success btn-lg  float-sm-right" href="addstudent.php">Add student</a>
+            
+            <a class="btn btn-success  float-sm-right" href="addstudent.php">Add student</a>
+            <a style="margin:0 5px" class="btn btn-default  float-sm-right" onclick="print()">Print</a>
           </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -47,9 +49,9 @@
                         $students_query = "select * from students";
                         $students_result=  mysqli_query($conn,$students_query);
                         foreach($students_result as $students_row){ 
-                  ?>  
+                  ?> 
                     <td><?=$students_row['id']?></td>
-                    <td><?=$students_row['name']?></td>
+                    <td><a href="studentprofile.php?&student_id=<?=$students_row['id']?>" ><?=$students_row['name']?> </td>
                     <td><?=$students_row['guardian_name']?></td>
                     <td>0<?=$students_row['guardian_phone']?></td>
                     <td><?=$students_row['birthdate']?></td>

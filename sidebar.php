@@ -71,14 +71,14 @@
             </a>
           </li>
 
-          <!-- <li class="nav-item">
-            <a href="./addcourse.php" class="nav-link">
+          <li class="nav-item">
+            <a href="./loginpage.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Add Course
+                login Page Info
               </p>
             </a>
-          </li> -->
+          </li>
 
           <li class="nav-item">
             <a href="./reports.php" class="nav-link">
