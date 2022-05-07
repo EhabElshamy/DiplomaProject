@@ -37,9 +37,12 @@
                     <th>Guardian</th>
                     <th>Guardian Phone</th>
                     <th>BirthDate</th>
+                    <th>Address</th>
                     <th>Stage</th>
                     <th>level</th>
                     <th>Class</th>
+                    <th>Passed</th>
+                    <th>Notes</th>
                     <th>Options</th>
                   </tr>
                   </thead>
@@ -55,6 +58,7 @@
                     <td><?=$students_row['guardian_name']?></td>
                     <td>0<?=$students_row['guardian_phone']?></td>
                     <td><?=$students_row['birthdate']?></td>
+                    <td><?=$students_row['address']?></td>
                     <td><?=$students_row['stage']?></td>
                     <td><?=$students_row['level']?></td>
                     <td><?php 
@@ -65,6 +69,8 @@
                     }
                     ?>
                     </td>
+                    <td><?=$students_row['success']?></td>
+                    <td><?=$students_row['notes']?></td>
                     <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="editstudent.php?&student_id=<?=$students_row['id']?>" class="fas fa-pen"></a>  
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="deletestudent.php?&student_id=<?=$students_row['id']?>" class="fas fa-trash"></i></td>
                   </tr>

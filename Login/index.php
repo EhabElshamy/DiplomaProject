@@ -4,27 +4,33 @@
     if(isset($_SESSION['username'])){
       header("Location: index.php");
     }
-    if(isset($_POST['login']))
-{
-	$username=$_POST['username'];
-	$password=$_POST['password'];
-	$query="SELECT * FROM admins WHERE BINARY name = BINARY '$username' AND BINARY password = BINARY '$password'";
-	$result=mysqli_query($conn,$query);
-	if (!$result) {
-		die(mysqli_error($conn));
+	$LoginInfoQuery  = "SELECT * from `login` WHERE `id` = 1";
+	$LoginInfoResult = mysqli_query($conn,$LoginInfoQuery);
+	foreach ( $LoginInfoResult as $LoginInfoRow){
+		$main_photo 	= $LoginInfoRow['main'];
+		$logo_photo 	= $LoginInfoRow['logo'];
+		$login_message 	= $LoginInfoRow['message'];
 	}
-	$num=mysqli_num_rows($result);
-	if($num==1){
-		//$_SESSION['id']=$id;	 
-		$_SESSION['username'] = true;
-		$_SESSION['username'] = $username;
-		header("Location: ../index.php");
-	}   
-	else {
-		echo "invalid credintials";
-	}
+    if(isset($_POST['login'])){
+		$username=$_POST['username'];
+		$password=$_POST['password'];
+		$query="SELECT * FROM admins WHERE BINARY name = BINARY '$username' AND BINARY password = BINARY '$password'";
+		$result=mysqli_query($conn,$query);
+		if (!$result) {
+			die(mysqli_error($conn));
+		}
+		$num=mysqli_num_rows($result);
+		if($num==1){
+			//$_SESSION['id']=$id;	 
+			$_SESSION['username'] = true;
+			$_SESSION['username'] = $username;
+			header("Location: ../index.php");
+		}   
+		else {
+			echo "invalid credintials";
+		}
 
-  }
+   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +67,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form method="post" action="#" class="login100-form validate-form">
-					<img class="img-circle elevation-2"  src= "images/school-management-software-500x500.png" >
+					<img class="img-circle elevation-2"  src= "../<?=$logo_photo?>" >
 					<span class="login100-form-title p-b-43">
 						Login to continue
 					</span>
@@ -93,14 +99,14 @@
 					
 					<div class="text-center p-t-46 p-b-20">
 						<span class="txt2">
-							reliable school managment system
+							<?=$login_message?>
 						</span>
 					</div>
 
 
 				</form>
 
-				<div class="login100-more" style="background-image: url('../images/Blog-picture.jpg');">
+				<div class="login100-more" style="background-image: url('../<?=$main_photo?>');">
 				</div>
 			</div>
 		</div>

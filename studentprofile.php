@@ -18,6 +18,7 @@
         $student_notes = $students_row['notes'];
       }
       if (isset($_FILES['photo']['tmp_name'])){
+        $notes = $_POST['notes'];
 
         $imagename=addslashes( $_FILES['photo']['tmp_name']);
         $image=$_FILES['photo']['tmp_name'];
@@ -49,7 +50,7 @@
                 $path="dist/img/".$_FILES['photo']['name'];
         
         
-                $UpdateStudentProfilePageQuery="UPDATE `students` SET `image`='$path' WHERE `id` = '$student_id'";
+                $UpdateStudentProfilePageQuery="UPDATE `students` SET `image`='$path', `notes` = '$notes' WHERE `id` = '$student_id'";
                 $UpdateStudentProfilePageResult= mysqli_query($conn,$UpdateStudentProfilePageQuery);
                 if(!$UpdateStudentProfilePageResult){
                   echo mysqli_error($conn);
@@ -210,11 +211,15 @@
                     <hr>
                     <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
                     <div class="form-group">
+                    <label for="exampleInputFile">Update Student Notes</label>
+                    <div class="custom-file">
+                        <input type="text" name="notes" class="custom-file-label" id="exampleInputFile" >
+                    </div>
+                    <div class="form-group">
                     <label for="exampleInputFile">Update Photo</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" name="photo" class="custom-file-input" id="exampleInputFile" value="">
-                        <label class="custom-file-label" for="exampleInputFile"><?=$image?></label>
+                        <input type="file" name="photo" class="custom-file-label" id="exampleInputFile" value="">
                       </div>
                       <div class="input-group-append">
                         <button name="update" type="submit" class="btn btn-success">update</button>

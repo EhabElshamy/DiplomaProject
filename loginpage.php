@@ -3,22 +3,83 @@
       include "sidebar.php";
       $message = "";
 
- if(isset($_POST['submit'])){
+      if(isset($_POST['submit'])){
 
+        $login_message = $_POST['loginmessage'];
+      if (isset($_FILES['mainphoto']['tmp_name'])){
 
-    $login_main_image = $_POST['mainphoto'];
-    //$login_logo_image = $_POST['logo'];
-    //$login_message = $_POST['loginmessage'];
+        $imagename=addslashes( $_FILES['mainphoto']['tmp_name']);
+        $image=$_FILES['mainphoto']['tmp_name'];
+         $types = array('image/jpg', 'image/gif','image/png','image/jpeg');
+            if (!in_array($_FILES['mainphoto']['type'], $types))
+          {
+             echo "
+             <div style='text-align:center;text-transform:capitalize' class='alert alert-danger alert-dismissible' role='start'>
+                This in not an image.
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            ";
+          }
+          else {
+             if(!$image) {
+              echo "
+                 <div style='text-align:center;text-transform:capitalize' class='alert alert-danger alert-dismissible' role='start'>
+                            Please Choose an Image
+                            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                        <span aria-hidden='true'>&times;</span>
+                            </button>
+                        </div>
+                        ";
+             } else {    
+                $folder= "dist/img/";    
+                move_uploaded_file($_FILES["mainphoto"]["tmp_name"], "$folder".$_FILES["mainphoto"]["name"]);
+                $path="dist/img/".$_FILES['mainphoto']['name'];
+        
+             }
+            }
+          } 
+          if (isset($_FILES['logo']['tmp_name'])){
 
-    echo $login_main_image;
-    
-    // $UpdateLoginPageInfoQuery=mysqli_query($conn,"UPDATE `login` SET `main`= '$login_main_image' WHERE `id` = '1'");
-    // if($UpdateLoginPageInfoQuery) 
-    // $message = "Data Updated Successfully";
-  
-    // } else {
-    //     echo mysqli_error($conn);
-    } 
+            $imagename=addslashes( $_FILES['logo']['tmp_name']);
+            $image=$_FILES['logo']['tmp_name'];
+             $types = array('image/jpg', 'image/gif','image/png','image/jpeg');
+                if (!in_array($_FILES['logo']['type'], $types))
+              {
+                 echo "
+                 <div style='text-align:center;text-transform:capitalize' class='alert alert-danger alert-dismissible' role='start'>
+                    This in not an image.
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                <span aria-hidden='true'>&times;</span>
+                    </button>
+                </div>
+                ";
+              }
+              else {
+                 if(!$image) {
+                  echo "
+                     <div style='text-align:center;text-transform:capitalize' class='alert alert-danger alert-dismissible' role='start'>
+                                Please Choose an Image
+                                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                </button>
+                            </div>
+                            ";
+                 } else {    
+                    $folder= "dist/img/";    
+                    move_uploaded_file($_FILES["logo"]["tmp_name"], "$folder".$_FILES["logo"]["name"]);
+                    $logopath="dist/img/".$_FILES['logo']['name'];
+            
+                 }
+                }
+              } 
+          $UpdateStudentProfilePageQuery="UPDATE `login` SET `main`='$path' , logo = '$logopath', `message` = '$login_message' WHERE `id` = '1'";
+          $UpdateStudentProfilePageResult= mysqli_query($conn,$UpdateStudentProfilePageQuery);
+          if(!$UpdateStudentProfilePageResult){
+            echo mysqli_error($conn);
+          }  
+        }  
       
 ?>      
 <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
@@ -28,7 +89,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Student info</h1>
+            <h1>Edit Login Page info</h1>
           </div>
  
         </div>
@@ -41,7 +102,7 @@
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Update Student Info</h3>
+              <h3 class="card-title">Update Login Page Info</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -75,7 +136,7 @@
                       </div>
                 
 
-            <input name="submit" type="submit" value="Update Student Data" class="btn btn-success float-right">
+            <input name="submit" type="submit" value="Update login info " class="btn btn-success float-right">
             </section>
             </div>
             </div>
