@@ -12,8 +12,8 @@
             <h1>Students</h1>
             </div>
             <div class="col-sm-6">
-            
-            <a class="btn btn-success  float-sm-right" href="addstudent.php">Add student</a>
+            <a class="btn btn-success float-sm-right" href="changeallresult.php">Change Result of the All students</a>
+            <a style="margin:0 5px" class="btn btn-success  float-sm-right" href="addstudent.php">Add student</a>
             <a style="margin:0 5px" class="btn btn-default  float-sm-right" onclick="print()">Print</a>
           </div>
       </div><!-- /.container-fluid -->

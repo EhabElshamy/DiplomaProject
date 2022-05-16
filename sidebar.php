@@ -81,10 +81,19 @@
           </li>
 
           <li class="nav-item">
+            <a href="./updatestudentresults.php" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Upgrade Students Level
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="./reports.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Reports
+                Advanced Search
               </p>
             </a>
           </li>

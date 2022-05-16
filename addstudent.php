@@ -8,11 +8,13 @@
   $guardian_name = $_POST['guardian_name'];
   $guardian_phone =$_POST['guardian_phone'];
   $birthdate  = $_POST['birthdate'];
+  $address = $_POST['address'];
   $stage = $_POST['stage'];
   $level = $_POST['level'];
+  $pass = "No";
 
 
-  $InsertClassInStudentQuery=mysqli_query($conn,"  INSERT INTO `students`(`name`, `guardian_name`, `guardian_phone`, `birthdate`, `stage`, `level`) VALUES ('$student_name','$guardian_name','$guardian_phone','$birthdate','$stage','$level')
+  $InsertClassInStudentQuery=mysqli_query($conn,"  INSERT INTO `students`(`name`, `guardian_name`, `guardian_phone`, `birthdate`,`address`,`stage`, `level`,`success`) VALUES ('$student_name','$guardian_name','$guardian_phone','$birthdate', '$address','$stage','$level','$pass')
   ");
   if($InsertClassInStudentQuery) $message = "Data Inserted Successfully";
   
@@ -71,6 +73,10 @@
               <div class="form-group">
                 <label for="inputDescription">Student Birthdate</label>
                 <input name="birthdate" type="date" id="inputName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="inputDescription">Address</label>
+                <input name="address" type="text" id="inputName" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="inputStatus">Stage</label>

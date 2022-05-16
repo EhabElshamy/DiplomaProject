@@ -86,7 +86,7 @@
             <h1>Profile</h1>
             </div>
             <div class="col-sm-6">
-            <a class="btn btn-default btn-lg  float-sm-right" onclick="print()">Print</a>
+            <a class="btn btn-default   float-sm-right" onclick="print()">Print</a>
           </div>
       </div><!-- /.container-fluid -->
     </section>
