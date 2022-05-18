@@ -1,6 +1,7 @@
 <?php
       require "header.php";
       include "sidebar.php";
+
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -12,9 +13,9 @@
             </div>
 
       </div><!-- /.container-fluid -->
-
+<form method = "post" action= "#">
     <div class="col-sm-6">
             <a class="btn btn-success" href="changeallresult.php">Change Result of the All students</a>
           </div>
-        
+</form>      
 </section>
