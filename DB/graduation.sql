@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2022 at 03:43 AM
+-- Generation Time: May 22, 2022 at 09:45 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -97,9 +97,9 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `name`, `description`, `stage`, `level`, `class`) VALUES
-(2, 'Arabic Level 1 ', 'Native Arabic for begginers', 'Primary', 'one', 'Class 1'),
-(4, 'English', 'Basic English', 'Primary', 'one', 'Class 1'),
-(5, 'Math', 'Basic Math one ', 'Primary', 'one', 'Class 1');
+(2, 'Arabic Level 1 ', 'Native Arabic for begginers', 'kindergarden', 'one', 'Class 1'),
+(4, 'English', 'Basic English', 'kindergarden', 'one', 'Class 1'),
+(5, 'Math', 'Basic Math one ', 'kindergarden', 'one', 'Class 1');
 
 -- --------------------------------------------------------
 
@@ -119,7 +119,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `main`, `logo`, `message`) VALUES
-(1, '', '', 'sdafasdfadsf');
+(1, 'dist/img/Blog-picture.jpg', 'dist/img/school-management-software-500x500.png', 'Simple School Management System');
 
 -- --------------------------------------------------------
 
@@ -152,7 +152,8 @@ INSERT INTO `stages` (`id`, `name`, `level`, `code`) VALUES
 (11, 'Preparatory', 'three', 'PP3'),
 (12, 'Secondary', 'one', 'SC1'),
 (13, 'Secondary', 'two', 'SC2'),
-(14, 'Secondary', 'three', 'SC3');
+(14, 'Secondary', 'three', 'SC3'),
+(15, 'Graduated', 'Graduated', 'GG1');
 
 -- --------------------------------------------------------
 
@@ -180,8 +181,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `guardian_name`, `guardian_phone`, `birthdate`, `address`, `image`, `stage`, `level`, `class`, `success`, `notes`) VALUES
-(10, 'Ehab', 'Mohamed', 1141513524, '1996-02-06', 'sharkia', 'dist/img/avms3gdi680v.mp4_snapshot_00.08.48.074.jpg', 'Primary', 'one', 'Class 1 ', 'No', 'Good Student'),
-(11, 'esmail', 'mohamed ', 1027857131, '1996-10-02', '', '', 'Kindergarden', 'One', '', '0', '');
+(10, 'Ehab', 'Mohamed', 1141513524, '1996-02-06', 'sharkia', 'dist/img/avms3gdi680v.mp4_snapshot_00.08.48.074.jpg', 'Primary', 'five', '', 'No', 'Good Student'),
+(11, 'esmail', 'mohamed ', 1027857131, '1996-10-02', '', '', 'Graduated', 'Graduated', '', 'No', ''),
+(12, 'Ammar', 'Ehab', 1141513524, '2021-11-23', 'Bany Helal', '', 'Preparatory', 'one', '', 'No', '');
 
 -- --------------------------------------------------------
 
@@ -194,20 +196,23 @@ CREATE TABLE `teachers` (
   `name` varchar(50) NOT NULL,
   `phone` int(11) NOT NULL,
   `birthdate` date NOT NULL,
+  `address` varchar(150) NOT NULL,
+  `image` varchar(250) NOT NULL,
   `qualifications` varchar(100) NOT NULL,
   `stage` varchar(20) NOT NULL,
   `level` varchar(15) NOT NULL,
-  `class` varchar(15) NOT NULL
+  `class` varchar(15) NOT NULL,
+  `notes` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teachers`
 --
 
-INSERT INTO `teachers` (`id`, `name`, `phone`, `birthdate`, `qualifications`, `stage`, `level`, `class`) VALUES
-(2, 'Ehab Mohamed ', 1141513524, '1996-07-12', 'Bachelor', 'Kindergarden', 'One', 'Class 2'),
-(3, 'Esmail ', 114225423, '1996-10-26', 'Master', 'Secondary', 'two', 'Class 2'),
-(4, 'Shaher', 2147483647, '1997-10-20', 'Diploma', 'Kindergarden', 'One', 'Class 3');
+INSERT INTO `teachers` (`id`, `name`, `phone`, `birthdate`, `address`, `image`, `qualifications`, `stage`, `level`, `class`, `notes`) VALUES
+(2, 'Ehab Mohamed ', 1141513524, '1996-07-12', '', 'dist/img/images.jpg', 'Bachelor', 'Kindergarden', 'One', 'class 1', 'Great Teacher'),
+(3, 'Esmail ', 114225423, '1996-10-26', '', '', 'Master', 'Secondary', 'two', 'Class 2', ''),
+(4, 'Shaher', 2147483647, '1997-10-20', '', '', 'Diploma', 'Kindergarden', 'One', 'Class 3', '');
 
 --
 -- Indexes for dumped tables
@@ -281,13 +286,13 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `stages`
 --
 ALTER TABLE `stages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `teachers`
