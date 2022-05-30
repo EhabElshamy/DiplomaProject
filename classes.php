@@ -79,7 +79,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=two&class_stage=Primary&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
             </div>
@@ -90,7 +90,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=three&class_stage=Primary&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
             </div>
@@ -101,7 +101,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=four&class_stage=Primary&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
             </div>
@@ -112,7 +112,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=five&class_stage=Primary&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
             </div>
@@ -123,7 +123,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=six&class_stage=Primary&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
             </div>
@@ -146,7 +146,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=one&class_stage=Preparatory&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
             </div>
@@ -157,7 +157,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=two&class_stage=Preparatory&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
             </div>
@@ -168,7 +168,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=three&class_stage=Preparatory&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
             </div>
@@ -191,7 +191,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=one&class_stage=Secondary&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
             </div>
@@ -202,7 +202,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=two&class_stage=Secondary&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
             </div>
@@ -213,7 +213,7 @@
                         $classes_result=  mysqli_query($conn,$classes_query);
                         foreach($classes_result as $classes_row){ 
               ?>  
-              <a class="btn btn-default" href=""><?=$classes_row['name']?></a>
+              <a class="btn btn-default" href="class.php?&class_level=three&class_stage=Secondary&class_name=<?=$classes_row['name']?>"><?=$classes_row['name']?></a>
 
               <?php } ?>
 

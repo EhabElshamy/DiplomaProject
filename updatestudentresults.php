@@ -15,7 +15,7 @@
       </div><!-- /.container-fluid -->
 <form method = "post" action= "#">
     <div class="col-sm-6">
-            <a class="btn btn-success" href="changeallresult.php">Change Result of the All students</a>
+            <a class="btn btn-success" href="changeallresult.php">Upgrade the level for all successed students</a>
           </div>
 </form>      
 </section>

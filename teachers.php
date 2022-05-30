@@ -49,7 +49,8 @@
                         foreach($teachers_result as $teachers_row){ 
                   ?>  
                     <td><?=$teachers_row['id']?></td>
-                    <td><?=$teachers_row['name']?></td>
+                    <td><a href=teacherprofile.php?&teacher_id=<?=$teachers_row['id']?> ><?=$teachers_row['name']?> </td>
+
                     <td><?=$teachers_row['phone']?></td>
                     <td><?=$teachers_row['qualifications']?></td>
                     <td><?=$teachers_row['stage']?></td>
