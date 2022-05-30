@@ -17,8 +17,18 @@
         $student_result= $students_row['success'];
         $student_notes = $students_row['notes'];
       }
-      if (isset($_FILES['photo']['tmp_name'])){
+      if (isset($_POST['notes'])){
+
         $notes = $_POST['notes'];
+        $UpdateteacherNotesQuery="UPDATE `students` SET `notes`='$notes' WHERE `id` = '$student_id'";
+        $UpdateteacherNotesResult= mysqli_query($conn,$UpdateteacherNotesQuery);
+        if(!$UpdateteacherNotesResult){
+          echo mysqli_error($conn);
+        }
+      }
+
+
+      if (isset($_FILES['photo']['tmp_name'])){
 
         $imagename=addslashes( $_FILES['photo']['tmp_name']);
         $image=$_FILES['photo']['tmp_name'];
@@ -50,7 +60,7 @@
                 $path="dist/img/".$_FILES['photo']['name'];
         
         
-                $UpdateStudentProfilePageQuery="UPDATE `students` SET `image`='$path', `notes` = '$notes' WHERE `id` = '$student_id'";
+                $UpdateStudentProfilePageQuery="UPDATE `students` SET `image`='$path' WHERE `id` = '$student_id'";
                 $UpdateStudentProfilePageResult= mysqli_query($conn,$UpdateStudentProfilePageQuery);
                 if(!$UpdateStudentProfilePageResult){
                   echo mysqli_error($conn);
@@ -209,12 +219,20 @@
 
                     </div>
                     <hr>
-                    <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
+                    <form class="form-horizontal" method="post" action="#">
                     <div class="form-group">
                     <label for="exampleInputFile">Update Student Notes</label>
-                    <div class="custom-file">
-                        <input type="text" name="notes" class="custom-file-label" id="exampleInputFile" >
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="text" name="notes" class="custom-file-label" id="exampleInputFile" value="<?=$student_notes ?>">
+                      </div>
+                      <div class="input-group-append">
+                        <button name="updatenotes" type="submit" class="btn btn-success">update</button>
+                      </div>
                     </div>
+                    </form>
+
+                    <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
                     <div class="form-group">
                     <label for="exampleInputFile">Update Photo</label>
                     <div class="input-group">

@@ -3,9 +3,17 @@
       include "sidebar.php";
       $message = "";
 
-      if(isset($_POST['submit'])){
+      if(isset($_POST['updatenotes'])){
 
         $login_message = $_POST['loginmessage'];
+
+        $UpdateLoginPageQuery="UPDATE `login` SET `message` = '$login_message' WHERE `id` = '1'";
+        $UpdateLoginPageResult= mysqli_query($conn,$UpdateLoginPageQuery);
+        if(!$UpdateLoginPageResult){
+          echo mysqli_error($conn);
+        } 
+
+      }  
       if (isset($_FILES['mainphoto']['tmp_name'])){
 
         $imagename=addslashes( $_FILES['mainphoto']['tmp_name']);
@@ -39,6 +47,12 @@
         
              }
             }
+            $UpdateLoginPageMainQuery="UPDATE `login` SET main = '$path'WHERE `id` = '1'";
+            $UpdateLoginPageMainResult= mysqli_query($conn,$UpdateLoginPageMainQuery);
+            if(!$UpdateLoginPageMainResult){
+              echo mysqli_error($conn);
+            } 
+
           } 
           if (isset($_FILES['logo']['tmp_name'])){
 
@@ -73,13 +87,14 @@
             
                  }
                 }
+                $UpdateStudentProfilePageQuery="UPDATE `login` SET logo = '$logopath'WHERE `id` = '1'";
+                $UpdateStudentProfilePageResult= mysqli_query($conn,$UpdateStudentProfilePageQuery);
+                if(!$UpdateStudentProfilePageResult){
+                  echo mysqli_error($conn);
+                }  
               } 
-          $UpdateStudentProfilePageQuery="UPDATE `login` SET `main`='$path' , logo = '$logopath', `message` = '$login_message' WHERE `id` = '1'";
-          $UpdateStudentProfilePageResult= mysqli_query($conn,$UpdateStudentProfilePageQuery);
-          if(!$UpdateStudentProfilePageResult){
-            echo mysqli_error($conn);
-          }  
-        }  
+
+        
       
 ?>      
 <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
@@ -112,31 +127,44 @@
             </div>
             <div class="card-body">
               <div class="form-group">
-              <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
+              <form class="form-horizontal" method="post" action="#">
                     <div class="form-group">
-                    <label for="exampleInputFile">Update Site message</label>
-                    <div class="custom-file">
-                        <input type="text" name="loginmessage" class="custom-file-label" id="exampleInputFile" >
+                    <label for="exampleInputFile">Update Teacher Notes</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="text" name="loginmessage" class="custom-file-label" id="exampleInputFile">
+                      </div>
+                      <div class="input-group-append">
+                        <button name="updatenotes" type="submit" class="btn btn-success">update</button>
+                      </div>
                     </div>
-                    <label for="exampleInputFile">Update Main Login Photo</label>
+                    </form>
+
+            <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
+              <label for="exampleInputFile">Update Main Login Photo</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" name="mainphoto" class="custom-file-label" id="exampleInputFile" >
                       </div>
+                    <div class="input-group-append">
+                        <button name="updatemain" type="submit" class="btn btn-success">update</button>
+                      </div>
                     </div>
-                    </div>
+              </form>
+
+              <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
                     <label for="exampleInputFile">Update Logo Photo</label>
+                    <div class="input-group">
                     <div class="custom-file">
                         <input type="file" name="logo" class="custom-file-label" id="exampleInputFile" >
+      </div>
+                      <div class="input-group-append">
+                        <button name="updatemain" type="submit" class="btn btn-success">update</button>
                       </div>
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          
-                        </div>
-                      </div>
+                    </div>                     
+
                 
 
-            <input name="submit" type="submit" value="Update login info " class="btn btn-success float-right">
             </section>
             </div>
             </div>
