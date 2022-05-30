@@ -18,7 +18,7 @@
       </div><!-- /.container-fluid -->
     </section>
 
-<section class="content">
+<section id="printable" class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -38,6 +38,7 @@
                     <th>Stage</th>
                     <th>level</th>
                     <th>Class</th>
+                    <th>Notes</th>
                     <th>Options</th>
                   </tr>
                   </thead>
@@ -62,6 +63,7 @@
                       echo '<a href="assignteacher.php?&teacher_id='.$teachers_row['id'].'" class="fas fa-plus"></a>';
                     }
                     ?>
+                    <td><?=$teachers_row['notes']?></td>
                     <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="editteacher.php?&teacher_id=<?=$teachers_row['id']?>" class="fas fa-pen"></a>  
                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="deleteteacher.php?&teacher_id=<?=$teachers_row['id']?>" class="fas fa-trash"></i></td>
 
@@ -74,4 +76,6 @@
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
+
+
 

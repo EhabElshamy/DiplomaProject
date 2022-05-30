@@ -9,10 +9,12 @@
   $qualifications = $_POST['qualifications'];
   $phone_number =$_POST['phone_number'];
   $birthdate  = $_POST['birthdate'];
+  $address =$_POST['address'];
+  $notes =$_POST['notes'];
 
 
 
-  $InsertClassInTeacherQuery=mysqli_query($conn,"UPDATE `teachers` SET `name`='$teacher_name',`qualifications`='$qualifications',`phone`='$phone_number',`birthdate`='$birthdate' WHERE `id` = '$teacher_id'");
+  $InsertClassInTeacherQuery=mysqli_query($conn,"UPDATE `teachers` SET `name`='$teacher_name',`qualifications`='$qualifications',`phone`='$phone_number',`birthdate`='$birthdate',`address` ='$address' , `notes` = '$notes' WHERE `id` = '$teacher_id'");
   if($InsertClassInTeacherQuery) $message = "Data Updated Successfully";
   
   }
@@ -72,8 +74,16 @@
                 <input name="qualifications" value="<?=$teachers_row['qualifications']?>" type="text" id="inputName" class="form-control" required>
               </div>
               <div class="form-group">
-                <label for="inputDescription">Student Birthdate</label>
+                <label for="inputDescription">Birthdate</label>
                 <input name="birthdate" value="<?=$teachers_row['birthdate']?>" type="date" id="inputName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="inputDescription"> Address</label>
+                <input name="address" value="<?=$teachers_row['address']?>" type="text" id="inputName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="inputDescription"> Notes</label>
+                <input name="notes" value="<?=$teachers_row['notes']?>" type="text" id="inputName" class="form-control" required>
               </div>
 <?php } ?>
               <!-- <div class="form-group">

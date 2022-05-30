@@ -104,6 +104,7 @@
                 </form>
             </div>
             </div>
+           
  <!-- show the results  -->
 <?php
       if(isset($_POST['submit'])){
@@ -112,9 +113,10 @@
         $stage = $_POST['stage'];
         $level = $_POST['level'];
         $class = $_POST['class'];
- ?>       
-                  <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
+ ?>      
+             <a style="margin:0 5px" class="btn btn-default  float-sm-right" onclick="printpart()">Print</a> 
+                  <div id="printable" class="card-body">
+                <table id="" class="table table-bordered table-hover">
                   <thead>
                   <tr>
                     <th>ID</th>
@@ -135,7 +137,7 @@
                         $and   = "`id` BETWEEN 0 AND 1000000";
 
                         if(!empty ($name)){
-                            $and .=" AND `name` = '$name'";
+                            $and .=" AND `name` like '%$name%'";
                         }
                         if(!empty ($stage)){
                             $and .=" AND `stage` = '$stage'";
@@ -191,6 +193,7 @@
                 </div></div></div>
 
         
+                <script>
 
  
 
@@ -204,3 +207,12 @@
 <?php
 include "footer.php";
 ?>
+            <script>
+function printpart () {
+  var printwin = window.open("");
+  printwin.document.write(document.getElementById("printable").innerHTML);
+  printwin.stop();
+  printwin.print();
+  printwin.close();
+}
+</script>
