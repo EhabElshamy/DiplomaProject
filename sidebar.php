@@ -21,6 +21,15 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="./admins.php" class="nav-link ">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Admins
+              </p>
+            </a>
+          </li>
           
 
           <li class="nav-item">

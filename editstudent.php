@@ -11,11 +11,12 @@
   $birthdate  = $_POST['birthdate'];
   $address =$_POST['address'];
   $notes =$_POST['notes'];
+  $class = $_POST['class'];
 
 
 
   $InsertClassInStudentQuery=mysqli_query($conn,"UPDATE `students`
-   SET `name`='$student_name',`guardian_name`='$guardian_name',`guardian_phone`='$guardian_phone',`birthdate`='$birthdate',`address` ='$address' , `notes` = '$notes'
+   SET `name`='$student_name',`guardian_name`='$guardian_name',`guardian_phone`='$guardian_phone',`birthdate`='$birthdate',`address` ='$address' , `notes` = '$notes',`class`='$class'
    WHERE `id` = '$student_id'");
   if($InsertClassInStudentQuery) $message = "Data Updated Successfully";
   
@@ -64,6 +65,9 @@
                   $students_query = "select * from students where id = '$student_id'";
                   $students_result=  mysqli_query($conn,$students_query);
                   foreach($students_result as $students_row){ 
+                    $student_stage = $students_row['stage'];
+                    $student_level = $students_row['level'];
+                    $student_class = $students_row['class'];
                   ?>
                 <label for="inputName">Student Name</label>
                 <input  name="student_name" value="<?=$students_row['name']?>" type="text" id="inputName" class="form-control" required>
@@ -88,7 +92,24 @@
                 <label for="inputDescription">Student Notes</label>
                 <input name="notes" value="<?=$students_row['notes']?>" type="text" id="inputName" class="form-control" required>
               </div>
+              <div class="form-group">
+              <label for="inputDescription">Student class</label>
+              <select name= "class" id="inputStatus" class="form-control custom-select">
+              <option selected disabled><?= $student_class ?></option>
+                  <?php
+                         $stages_query  = "select * from stages where name ='$student_stage' AND level = '$student_level'";
+                         $stages_result = mysqli_query($conn,$stages_query);
+                         foreach($stages_result as $student_stage_level){ 
+                         $studentstagecode= $student_stage_level['code'];
+                         $classes_query = "select * from classes where stage_code = '$studentstagecode' AND name <> '$student_class' ";
+                         $classes_result=  mysqli_query($conn,$classes_query);
+                         foreach($classes_result as $classes_row){
+                  ?>
+                  <option><?= $classes_row['name'] ?></option>
+                 <?php }} ?> 
+                </select>
 <?php } ?>
+                         </div>
               <!-- <div class="form-group">
                 <label for="inputStatus">Class</label>
                 <select id="inputStatus" class="form-control custom-select">
