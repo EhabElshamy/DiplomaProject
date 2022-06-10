@@ -180,20 +180,22 @@
 
                   </tr>
                   <?php
-                    }
+                    }                  
                   ?>
                   </tfoot>
                 </table>
               </div>
-              <?php
-
-                   }
-
-                ?>
+              <form method="post" action="advancedExport.php?&table=<?=$table;?>&name=<?=$name;?>&stage=<?=$stage;?>&level=<?=$level?>&class=<?=$class?>">
+                <input type="submit" name="export" class="btn btn-success" value="Export To Excel" />
+              </form>
                 </div></div></div>
+                <?php
+                  }
+                ?>
 
         
                 <script>
+
 
  
 

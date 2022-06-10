@@ -35,6 +35,7 @@
                     <th>Name</th>
                     <th>Phone</th>
                     <th>qualifications</th>
+                    <th>Address</th>
                     <th>Stage</th>
                     <th>level</th>
                     <th>Class</th>
@@ -54,6 +55,7 @@
 
                     <td><?=$teachers_row['phone']?></td>
                     <td><?=$teachers_row['qualifications']?></td>
+                    <td><?=$teachers_row['address']?></td>
                     <td><?=$teachers_row['stage']?></td>
                     <td><?=$teachers_row['level']?></td>
                     <td><?php 
@@ -76,6 +78,9 @@
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
+            <form method="post" action="teachersExport.php">
+                <input type="submit" name="export" class="btn btn-success" value="Export To Excel" />
+           </form>
 
 
 

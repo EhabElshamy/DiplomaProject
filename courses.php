@@ -72,4 +72,7 @@
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
+            <form method="post" action="coursesExport.php">
+                <input type="submit" name="export" class="btn btn-success" value="Export To Excel" />
+           </form>
 
