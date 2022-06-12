@@ -1,6 +1,9 @@
 <?php
       require "header.php";
       include "sidebar.php";
+ 
+
+    
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -10,11 +13,19 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Students</h1>
+            <?php
+                      if(isset($_SESSION['message']))
+                      {
+                          echo "<h4>".$_SESSION['message']."</h4>";
+                          unset($_SESSION['message']);
+                      }
+                ?>
             </div>
             <div class="col-sm-6">
             <a class="btn btn-success float-sm-right" href="changeallresult.php">Change Result of the All students</a>
             <a style="margin:0 5px" class="btn btn-success  float-sm-right" href="addstudent.php">Add student</a>
             <a style="margin:0 5px" class="btn btn-default  float-sm-right" onclick="print()">Print</a>
+            <a  class="btn btn-primary  float-sm-right" href="studentsImport.php">Import</a>
           </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -26,6 +37,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Students Info</h3>
+
               </div>
               <!-- /.card-header -->
               <div class="card-body">

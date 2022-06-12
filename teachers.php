@@ -10,10 +10,18 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Teachers</h1>
+            <?php
+                      if(isset($_SESSION['message']))
+                      {
+                          echo "<h4>".$_SESSION['message']."</h4>";
+                          unset($_SESSION['message']);
+                      }
+                ?>
             </div>
             <div class="col-sm-6">
             <a class="btn btn-success float-sm-right" href="addteacher.php">Add teacher</a>
             <a style="margin:0 5px" class="btn btn-default  float-sm-right" onclick="print()">Print</a>
+            <a  class="btn btn-primary  float-sm-right" href="teachersImport.php">Import</a>
           </div>
       </div><!-- /.container-fluid -->
     </section>
