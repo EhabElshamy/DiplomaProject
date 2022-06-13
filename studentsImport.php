@@ -4,8 +4,11 @@
 
 ?>
 
-<div class="container">
-        <div class="row">
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+
+
             <div class="col-md-12 mt-4">
 
                 <?php
@@ -30,8 +33,6 @@
 
                         </form>
 
-                    </div>
+                        </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </section>
